@@ -1,0 +1,321 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;1,300&family=Ubuntu&display=swap");
+
+:root {
+  --fs: 13px;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+* {
+  font-family: "Montserrat", sans-serif;
+  color: rgb(73, 73, 73);
+}
+
+body .MicrosoftMap .dirWp input {
+  font-size: var(--fs) !important;
+}
+.MicrosoftMap .directionsInput {
+  font-size: var(--fs) !important;
+}
+.MicrosoftMap .dirTimePopup .radioGroup {
+  font-size: var(--fs) !important;
+}
+.MicrosoftMap {
+  font-size: var(--fs) !important;
+}
+.MicrosoftMap.dirSDK .directionsPanel {
+  width: 360px !important;
+}
+@media screen and (max-width: 400px) {
+  .MicrosoftMap.dirSDK .directionsPanel {
+    width: 300px !important;
+  }
+  :root {
+    --fs: 10px;
+  }
+  .directionsContainer {
+    width: 20rem;
+  }
+}
+
+.rt {
+  position: relative;
+  z-index: 10000;
+  transition: all 0.4s;
+  background-color: white;
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  text-align: center;
+  border-radius: 1rem;
+  padding: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  width: 8rem;
+  height: min-content;
+  box-shadow: 0px 0px 6px 0px rgba(77, 77, 77, 0.436);
+}
+
+.rt:hover {
+  transform: scale(0.97);
+}
+
+#rtags {
+  padding-left: 1rem;
+  position: absolute;
+  height: 100%;
+  width: 15rem;
+  left: calc(100vw - 15rem);
+  font-size: 14px;
+  overflow-y: auto;
+}
+
+.ws {
+  width: 8rem;
+}
+
+#form_r {
+  margin-top: 0.5rem;
+  position: absolute;
+  left: calc(50vw - 4rem);
+  top: 10vh;
+  left: 100vw;
+  z-index: 100000;
+  transition: all 0.4s;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(3.7px);
+  -webkit-backdrop-filter: blur(3.7px);
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  text-align: center;
+  border-radius: 1rem;
+  padding: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  width: 11em;
+  height: min-content;
+}
+
+#form_r input {
+  margin-top: 0.3rem;
+  background: rgba(255, 255, 255, 0) !important;
+  border-style: solid;
+  border-width: 1px;
+  border-color: lightgrey;
+  height: 1.5rem;
+  border-radius: 6px;
+  width: 90%;
+}
+
+#form_r button {
+  margin-top: 0.3rem;
+  background: rgba(255, 255, 255, 0) !important;
+  border-style: solid;
+  border-width: 1px;
+  border-color: lightgrey;
+  height: 1.5rem;
+  border-radius: 6px;
+  width: 90%;
+}
+
+#form_r select {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  background: rgba(255, 255, 255, 0) !important;
+  border-style: solid;
+  border-width: 1px;
+  border-color: lightgrey;
+  height: 1.5rem;
+  border-radius: 6px;
+  width: 90%;
+}
+
+#form_r form label {
+  margin-top: 0.5rem;
+}
+
+#form_button {
+  border-radius: 10rem;
+  height: 3.5rem;
+  width: 3.5rem;
+  padding: 0;
+  border: none;
+  position: absolute;
+  z-index: 1000000;
+  left: calc(100vw - 4.5rem);
+  top: calc(100vh - 6.5rem);
+}
+
+#form_r textarea {
+  margin-top: 0.3rem;
+  background: rgba(255, 255, 255, 0) !important;
+  border-style: solid;
+  border-width: 1px;
+  border-color: lightgrey;
+  height: 1.5rem;
+  border-radius: 6px;
+  resize: none;
+  height: 5rem;
+}
+
+#form_button_checkbox {
+  display: none;
+}
+
+#form_button_checkbox:checked ~ #form_r {
+  left: calc(50vw - 4rem);
+}
+
+/* settings properties for left input panel */
+.directionsContainer {
+  width: 24rem;
+  height: 90%;
+  overflow-y: auto;
+  float: left;
+  scrollbar-width: none;
+  position: absolute;
+  z-index: 1000;
+  transition: all 0.4s;
+  background-color: white;
+  transform: translateX(1rem);
+  margin: 2rem;
+  margin-top: 4vh;
+  border-radius: 1rem;
+  padding: 0.3rem;
+  padding-left: 1.7rem;
+  box-shadow: 0px 0px 6px 0px rgba(77, 77, 77, 0.436);
+}
+
+.directionsContainer::-webkit-scrollbar {
+  width: 0 !important;
+}
+
+#backToHome {
+  margin-top: 1rem;
+  margin-right: 1rem;
+}
+
+#backToHome a {
+  text-decoration: none;
+  font-size: 13px;
+}
+
+/* button for moving input panel outside the screen*/
+#squish {
+  position: absolute;
+  left: 27rem;
+  top: 5rem;
+  z-index: 2000;
+  background-color: white;
+  width: 1rem;
+  transition: all 0.4s;
+  text-align: center;
+  padding: 0.5rem;
+  font-weight: 900;
+  opacity: 0.8;
+}
+
+#squish1 {
+  position: absolute;
+  top: 5rem;
+  left: 27rem;
+  z-index: 1999;
+  background-color: white;
+  transition: all 0.4s;
+  width: 1rem;
+  padding: 0.5rem;
+  font-weight: 900;
+  opacity: 0;
+}
+
+#check {
+  display: none;
+}
+
+#check:checked ~ #squish {
+  left: 0rem;
+  opacity: 0;
+}
+
+#check:checked ~ #squish1 {
+  left: 0rem;
+  opacity: 0.9;
+}
+
+#squish1:hover {
+  opacity: 0.9;
+}
+
+#squish:hover {
+  opacity: 0.9;
+}
+
+#check:checked ~ .directionsContainer {
+  transform: translateX(-26rem);
+}
+
+#squishm {
+  display: none;
+}
+#squish1m {
+  display: none;
+}
+#checkm {
+  display: none;
+}
+
+#myMap {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  background-color: rgba(124, 124, 124, 0.301);
+  border-radius: 30px;
+}
+
+.toggle:after {
+  content: "";
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+  top: 3px;
+  left: 4px;
+  transition: all 0.5s;
+}
+
+.checkbox:checked + .toggle::after {
+  left: 29px;
+}
+
+.checkbox:checked + .toggle {
+  background-color: rgb(44, 218, 44);
+}
+.checkbox_blue:checked + .toggle {
+  background-color: rgb(6, 138, 249);
+}
+
+.checkbox {
+  display: none;
+}
+
+/* end of slider code */

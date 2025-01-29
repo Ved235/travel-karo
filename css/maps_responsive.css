@@ -1,0 +1,342 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;1,300&family=Ubuntu&display=swap");
+
+:root {
+  --fs: 13px;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+* {
+  font-family: "Montserrat", sans-serif;
+  color: rgb(73, 73, 73);
+}
+
+body .MicrosoftMap .dirWp input {
+  font-size: var(--fs) !important;
+}
+
+.MicrosoftMap .directionsInput {
+  font-size: var(--fs) !important;
+}
+
+.MicrosoftMap .dirTimePopup .radioGroup {
+  font-size: var(--fs) !important;
+}
+
+.MicrosoftMap {
+  font-size: var(--fs) !important;
+}
+
+.MicrosoftMap.dirSDK .directionsPanel {
+  width: 360px !important;
+}
+
+.rt {
+  position: relative;
+  z-index: 10000;
+  transition: all 0.4s;
+  background-color: white;
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  text-align: center;
+  border-color: black;
+  border-width: 5px;
+  padding: 1rem;
+  width: auto;
+  height: max-content;
+}
+
+#rtags {
+  width: 100vw;
+  font-size: 14px;
+  overflow-y: auto;
+  display: flex;
+  height: 22rem;
+  position: absolute;
+  top: calc(100vh - 22rem);
+  left: 100vw;
+  background-color: white;
+  z-index: 5000;
+}
+
+#form_r {
+  margin-top: 0.5rem;
+  position: absolute;
+  left: calc(50vw - 4rem);
+  top: 10vh;
+  left: 100vw;
+  z-index: 100000;
+  transition: all 0.4s;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(3.7px);
+  -webkit-backdrop-filter: blur(3.7px);
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  text-align: center;
+  border-radius: 1rem;
+  padding: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  width: 11rem;
+  height: min-content;
+}
+
+#form_r input {
+  margin-top: 0.3rem;
+  background: rgba(255, 255, 255, 0) !important;
+  border-style: solid;
+  border-width: 1px;
+  border-color: lightgrey;
+  height: 1.5rem;
+  border-radius: 6px;
+  width: 90%;
+}
+
+#form_r button {
+  margin-top: 0.3rem;
+  background: rgba(255, 255, 255, 0) !important;
+  border-style: solid;
+  border-width: 1px;
+  border-color: lightgrey;
+  height: 1.5rem;
+  border-radius: 6px;
+  width: 90%;
+}
+
+#form_r select {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  background: rgba(255, 255, 255, 0) !important;
+  border-style: solid;
+  border-width: 1px;
+  border-color: lightgrey;
+  height: 1.5rem;
+  border-radius: 6px;
+  width: 90%;
+}
+
+#form_r form label {
+  margin-top: 0.5rem;
+}
+
+#form_button {
+  border-radius: 10rem;
+  height: 2.5rem;
+  width: 2.5rem;
+  padding: 0;
+  border: none;
+  position: absolute;
+  z-index: 1000000;
+  left: calc(100vw - 3.5rem);
+  top: 1rem;
+}
+
+#form_r textarea {
+  margin-top: 0.3rem;
+  background: rgba(255, 255, 255, 0) !important;
+  border-style: solid;
+  border-width: 1px;
+  border-color: lightgrey;
+  height: 1.5rem;
+  border-radius: 6px;
+  resize: none;
+  height: 5rem;
+}
+
+#form_button_checkbox {
+  display: none;
+}
+
+#form_button_checkbox:checked ~ #form_r {
+  left: calc(50vw - 7rem);
+}
+
+.directionsContainer {
+  width: calc(100vw - 2rem);
+  height: 22rem;
+  overflow-y: auto;
+  scrollbar-width: none;
+  position: absolute;
+  z-index: 1000;
+  background-color: white;
+  top: calc(100vh - 22rem);
+  padding: 0.3rem;
+  padding-left: 1.7rem;
+  box-shadow: 0px 0px 6px 0px rgba(77, 77, 77, 0.436);
+}
+
+.directionsContainer::-webkit-scrollbar {
+  width: 0 !important;
+}
+
+#backToHome {
+  margin-top: 1rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+}
+
+#backToHome a {
+  text-decoration: none;
+  font-size: 13px;
+}
+
+#squish {
+  position: absolute;
+  left: calc(100vw - 2rem);
+  top: calc(100vh - 24rem);
+  z-index: 2000;
+  background-color: white;
+  width: 1rem;
+  transition: all 0.4s;
+  text-align: center;
+  padding: 0.5rem;
+  font-weight: 900;
+  opacity: 0.8;
+}
+
+#squish1 {
+  position: absolute;
+  left: calc(100vw - 2rem);
+  top: calc(100vh - 24rem);
+  z-index: 1999;
+  background-color: white;
+  transition: all 0.4s;
+  width: 1rem;
+  padding: 0.5rem;
+  font-weight: 900;
+  opacity: 0;
+}
+
+#check {
+  display: none;
+}
+
+#check:checked ~ #squish {
+  opacity: 0;
+}
+
+#check:checked ~ #squish1 {
+  opacity: 0.9;
+}
+
+#squish1:hover {
+  opacity: 0.9;
+}
+
+#squish:hover {
+  opacity: 0.9;
+}
+
+#check:checked ~ .directionsContainer {
+  left: -100vw;
+}
+
+#check:checked ~ #rtags {
+  left: 0;
+}
+
+#squishm {
+  position: absolute;
+  top: calc(100vh - 24rem);
+  z-index: 2000;
+  background-color: white;
+  width: 1rem;
+  display: block;
+  text-align: center;
+  padding: 0.5rem;
+  font-weight: 900;
+  opacity: 0.75;
+}
+
+#squish1m {
+  position: absolute;
+  top: calc(100vh - 24rem);
+  z-index: 1999;
+  background-color: white;
+  width: 1rem;
+  padding: 0.5rem;
+  font-weight: 900;
+  opacity: 0;
+}
+
+#checkm {
+  display: none;
+}
+
+#checkm:checked ~ .directionsContainer {
+  top: 100vh;
+}
+
+#checkm:checked ~ #rtags {
+  top: 100vh;
+}
+
+#checkm:checked ~ #squishm {
+  top: calc(100vh - 2rem);
+  opacity: 0;
+}
+
+#checkm:checked ~ #squish1m {
+  top: calc(100vh - 2rem);
+  opacity: 0.9;
+}
+
+#checkm:checked ~ #squish {
+  top: calc(100vh - 2rem);
+}
+
+#checkm:checked ~ #squish1 {
+  top: calc(100vh - 2rem);
+}
+
+#myMap {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  background-color: rgba(124, 124, 124, 0.301);
+  border-radius: 30px;
+}
+
+.toggle:after {
+  content: "";
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+  top: 3px;
+  left: 4px;
+  transition: all 0.5s;
+}
+
+.checkbox:checked + .toggle::after {
+  left: 29px;
+}
+
+.checkbox:checked + .toggle {
+  background-color: rgb(44, 218, 44);
+}
+
+.checkbox {
+  display: none;
+}
