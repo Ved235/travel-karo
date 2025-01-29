@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>TravelKaro</title>
+    <meta name="description" content="" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <link rel="icon" type="image/x-icon" href="./src/assets/favicon.ico" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script
+      type="text/javascript"
+      src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"
+    ></script>
+
+    <link
+      id="stylesheet"
+      rel="stylesheet"
+      type="text/css"
+      href="./src/css/maps.css"
+    />
+    <script src="./src/js/maps.js"></script>
+    <script>
+      if (window.innerWidth < 700) {
+        document
+          .getElementById("stylesheet")
+          .setAttribute("href", "./src/css/maps_responsive.css");
+      } else {
+        document
+          .getElementById("stylesheet")
+          .setAttribute("href", "./src/css/maps.css");
+      }
+    </script>
+  </head>
+
+  <body>
+    <input type="checkbox" id="check" /><label id="squish" for="check"
+      ><i class="fa-solid fa-backward"></i> </label
+    ><label id="squish1" for="check"><i class="fa-solid fa-forward"></i></label>
+
+    <input type="checkbox" id="checkm" onchange="responsive()" /><label
+      id="squishm"
+      for="checkm"
+      ><i class="fa-solid fa-backward fa-rotate-270"></i> </label
+    ><label id="squish1m" for="checkm"
+      ><i class="fa-solid fa-forward fa-rotate-270"></i
+    ></label>
+
+    <input type="checkbox" id="form_button_checkbox" />
+    <button id="form_button">
+      <label for="form_button_checkbox"
+        ><img
+          src="./src/assets/form_button.png"
+          style="height: 100%; width: 100%"
+      /></label>
+    </button>
+
+    <div id="form_r">
+      <img src="./src/assets/form.png" style="height: 3rem; width: 3rem" />
+      <b>
+        <p style="width: 8rem">Review Form</p>
+      </b>
+      <form id="review_form">
+        <label>Location</label>
+        <input type="text" id="location" />
+
+        <select id="form_sel" onChange="form_select()">
+          <option value="ev">EV</option>
+          <option value="transit">Public Transit</option>
+        </select>
+
+        <label id="ev_select"
+          >Were there sufficient chargers in the route</label
+        >
+        <input type="text" id="ev_select1" style="margin-bottom: 1rem" />
+
+        <label>Feedback</label>
+        <textarea rows="4" cols="20" id="response"></textarea>
+
+        <button id="sub">Submit</button>
+      </form>
+    </div>
+
+    <div id="rtags">
+      <div id="direc_emmis" class="rt">
+        <img src="./src/assets/co2.jpg" style="height: 4rem; width: 4rem" />
+        <p class="ws">Carbon Emissions</p>
+        <p id="carbon">Enter a location</p>
+      </div>
+      <div id="fair_price" class="rt">
+        <img src="./src/assets/rupee'.png" style="height: 3rem; width: 3rem" />
+        <p class="ws">Fare Price</p>
+        <a
+          href="https://blu-smart.com/"
+          style="text-decoration: none"
+          target="_blank"
+          id="fp1"
+        >
+        </a>
+        <p id="fp">Enter a location</p>
+      </div>
+      <div id="ev" for="evi" class="rt" style="margin-bottom: 2rem">
+        <img src="src/assets/leaves.png" style="height: 3rem; width: 3rem" />
+        <p class="ws"><b>EV</b> Switch</p>
+        <label class="switch">
+          <input
+            type="checkbox"
+            id="switch"
+            class="checkbox"
+            onclick="evSwitch()"
+          />
+          <label for="switch" class="toggle"> </label>
+        </label>
+      </div>
+      <div id="ev_chargers" class="rt" style="display: none">
+        <img
+          src="./src/assets/ev_charger.png"
+          style="height: 3rem; width: 3rem"
+        />
+        <p class="ws">EV charging locations near you</p>
+        <label class="switch">
+          <input
+            type="checkbox"
+            id="switch1"
+            class="checkbox"
+            onclick="charger()"
+          />
+          <label for="switch1" class="toggle"> </label>
+        </label>
+      </div>
+      <div id="ev_chargers_private" class="rt" style="display: none">
+        <img
+          src="./src/assets/ev_charger_private.jpeg"
+          style="height: 3rem; width: 3rem"
+        />
+        <p class="ws">TravelKaro Private EV Chargers near you</p>
+        <label class="switch">
+          <input
+            type="checkbox"
+            id="switch2"
+            class="checkbox checkbox_blue"
+            onclick="charger_private()"
+          />
+          <label for="switch2" class="toggle"> </label>
+        </label>
+      </div>
+    </div>
+
+    <div class="directionsContainer">
+      <div id="backToHome">
+        <a href="index.html"> Back to Home</a>
+        <hr />
+      </div>
+
+      <div id="directionsPanel"></div>
+      <div id="auto_com"></div>
+      <div id="auto_com1"></div>
+      <div id="directionsItinerary"></div>
+    </div>
+
+    <div id="myMap"></div>
+
+    <script>
+      (async () => {
+        let script = document.createElement("script");
+        let bingKey =
+          "Air9YbvoUA261gpBQWR8mNCXLKboJFf9-h0ICic9y_0doZEzKkU5hLZ-PMtP0JWb";
+        script.setAttribute(
+          "src",
+          `https://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=${bingKey}`
+        );
+        document.body.appendChild(script);
+      })();
+    </script>
+    <script type="module" src="./src/js/firebase.js"></script>
+  </body>
+</html>
